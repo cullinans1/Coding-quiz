@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+:root {
+    --color1: rgb(114, 0, 0);
+    --color2: rgb(211, 211, 211);
+}
+header {
+    padding:25px;
+    margin:15px;
+    font-size: 10px;
+}
+/*Format for the main part of page*/
+.page-content {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+/* Styling for objects inside of page content*/
+.question-list-wrapper {
+    border: 2px solid black;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+.question {
+    font-size: 25px;
+    padding-bottom:20px;
+}
+.startbtn {
+    background-color: var(--color1);
+    color: var(--color2);
+    
+}
