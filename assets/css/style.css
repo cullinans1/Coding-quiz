@@ -13,6 +13,11 @@ header {
     margin:15px;
     font-size: 10px;
 }
+/* Styling for timer left countdown */
+.countdown {
+    text-align: right;
+    font-size: 1.5vw;
+}
 /*Format for the main part of page*/
 .page-content {
     display:flex;
@@ -22,7 +27,6 @@ header {
 }
 /* Styling for objects inside of page content*/
 .question-list-wrapper {
-    border: 2px solid black;
     width: 100%;
     text-align: center;
     padding: 20px;
@@ -54,4 +58,13 @@ header {
 .startbtn:active {
   box-shadow: 0 0px var(--color2);
   top: 0;
+}
+.hidden {
+    display: none;
+}
+.questions {
+    font-size: 25px;
+}
+.choices {
+    font-size: 15px;
 }

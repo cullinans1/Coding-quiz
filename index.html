@@ -9,17 +9,26 @@
 <body>
 <!--Header for the Page-->
     <header>
-        <h1 class="scores">View High Scores</h1>
+        <h1 class="scores" id="scores">View High Scores</h1>
+        <p class="countdown" id="countdown"></p>
     </header>
 <!--Main part of the webpage-->
     <main class="page-content">
-        <section class="question-list-wrapper">
+        <section class="start-screen" id="start-screen">
             <h2 class="question">Coding Quiz Challenge</h2>
-            <p id="discription">Answer the question correctly to gain points, answering incorretly leads to time pentaly.</p>
+            <p id="discription">Answer the question correctly to earn points, answering incorrectly leads to time penalty.</p>
             <p> Click the button to start!</p>
-            <button class="startbtn" type="submit">Ready GO!</button>
+            <button class="startbtn" id="start-task" type="submit">Ready GO!</button>
+        </section>
+        <section class="hidden" id="questions">
+            <h1 id="heading"></h1>
+            <div class="choices" id="choices">
+
+            </div>
         </section>
     </main>
+    <div class="hidden">
+    </div>
     
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
