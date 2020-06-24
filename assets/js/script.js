@@ -1,16 +1,18 @@
 var startButtonEl = document.getElementById("start-task");
 var questionsEl = document.getElementById("questions=list-wrapper");
-var mainEl = document.querySelector("main");
+var mainEl = document.querySelector(".main");
 var countDownEl = document.getElementById("countdown");
 var startScreenEl = document.getElementById("start-screen");
 var questionsEl = document.getElementById("questions");
 var currentIndex = 0;
+var choices = document.getElementsByClassName("choices");
+
 //array for questions
 var questionBank = [
     {
         question: "This is a test",
-        choices: ["This is also a test", "Testing b", "testing C", "testing d"],
-        answer: "testing b"
+        options: ["This is also a test", "Testing b", "testing C", "testing d"],
+        answer: "Testing b"
     }
 ];
 
@@ -35,16 +37,20 @@ function startQuiz() {
     startScreenEl.setAttribute("class", "hidden");
     //get questions
     getQuestions();
-
 }
 var getQuestions = function() {
     //call the questions from the question bank
     var newQuestion = questionBank[currentIndex];
-    // questionsEl.removeAttribute("class");
+    questionsEl.removeAttribute("class");
     //display question with this text content
     var questionTitle = document.getElementById("heading");
-    questionTitle.textContent = newQuestion.question
+    questionTitle.textContent = newQuestion.question;
     //display choices and buttons
-    
+    console.log(choices);
+    for(i = 0; i < choices.length; i++) {
+        choices[i].textContent = newQuestion.options[i]
+        console.log(choices[i]);
+
+    }
 }
-startButtonEl.onclick= startQuiz;
+startButtonEl.onclick = startQuiz;
