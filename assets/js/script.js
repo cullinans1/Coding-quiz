@@ -7,9 +7,9 @@ var questionsEl = document.getElementById("questions");
 var currentIndex = 0;
 var choices = document.getElementById("choices");
 var buttonEl = document.querySelector(".btn");
-var answerIsEl = document.getElementsByClassName("answerIs");
 var scoreEl = document.getElementById("score");
-var score = 0
+var viewScoreEl= document.getElementById("view-scores");
+var score = 0;
 //array for questions
 var questionBank = [
     {
@@ -48,13 +48,16 @@ var questionBank = [
 function quizTimer() {
     //time for quiz
     var timeLeft = 75;
-    var timeInterval = setInterval(() => {
+    var timeInterval = setInterval(function() {
     countDownEl.textContent = "Time left: " + timeLeft;
     if(timeLeft === 0 ) {
         countDownEl.textContent = "Times up!";
         alert("The quiz is over! Lets see how you did.")
         clearInterval(timeInterval);
         endGame();
+    }
+    else if (currentIndex === 6) {
+        clearInterval(timeInterval);
     }
     timeLeft--;
     }, 1000);
@@ -104,8 +107,13 @@ function buttonClicked() {
     } else {
         getQuestions();
     }
+    score === score;
 };
 function endGame () {
+    questionsEl.setAttribute("class", "hidden");
+    viewScoreEl.removeAttribute("class");
+    viewScoreEl.setAttribute("class", "")
+    viewScoreEl.textContent = "Your score: " + score;
 
 };
 startButtonEl.onclick = startQuiz;
