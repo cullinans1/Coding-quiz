@@ -16,12 +16,19 @@
     </header>
 <!--Main part of the webpage-->
     <main class="page-content">
-        <div class="hidden" id="view-scores">
-            <h2> Scores </h2>
-            <p>Enter your name here</p>
-            <textarea></textarea>
-            <input class="btn btn-secondary" type="submit" value="Submit">
+        <div class="hidden" id="set-user-score">
+            <form>
+                <div class="row">
+                  <div class="col">
+                      <h2 id="final-score"></h2>
+                      <h3>Enter your initals here to save your score!</h3>
+                    <input type="text" class="form-control" id="initalsEntry" placeholder="Initals">
+                  </div>
+                </div>
+                <button class="btn btn-secondary" type="button" id="submit">Submit</button>
+            </form>
         </div>
+        <div class="hidden" id="view-scores"></div>
         <section class="start-screen" id="start-screen">
             <h2 class="question">Coding Quiz Challenge</h2>
             <p id="discription">Answer the question correctly to earn points, answer incorrectly to lose points!</p>

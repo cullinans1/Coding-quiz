@@ -1,6 +1,5 @@
 var startButtonEl = document.getElementById("start-task");
 var questionsEl = document.getElementById("questions=list-wrapper");
-var mainEl = document.querySelector(".main");
 var countDownEl = document.getElementById("countdown");
 var startScreenEl = document.getElementById("start-screen");
 var questionsEl = document.getElementById("questions");
@@ -8,7 +7,11 @@ var currentIndex = 0;
 var choices = document.getElementById("choices");
 var buttonEl = document.querySelector(".btn");
 var scoreEl = document.getElementById("score");
-var viewScoreEl= document.getElementById("view-scores");
+var setUserInitals = document.getElementById("set-user-score");
+var finalScoreEl = document.getElementById("final-score");
+var submitBtn = document.getElementById("submit");
+var formControlEl = document.getElementById("initalsEntry");
+var viewScoresEl = document.getElementById("view-scores")
 var score = 0;
 //array for questions
 var questionBank = [
@@ -111,9 +114,26 @@ function buttonClicked() {
 };
 function endGame () {
     questionsEl.setAttribute("class", "hidden");
-    viewScoreEl.removeAttribute("class");
-    viewScoreEl.setAttribute("class", "")
-    viewScoreEl.textContent = "Your score: " + score;
-
+    setUserInitals.removeAttribute("class");
+    setUserInitals.setAttribute("class", "score-screen")
+    finalScoreEl.textContent = "Final Score: " + score;
+    submitBtn.onclick= saveScores;
 };
+function saveScores () {
+    var userInitals = formControlEl.value.trim();
+    var userScores = JSON.parse(window.localStorage.getItem("userScores")) || [];
+
+    var newScore = {
+        score: score,
+        initals: userInitals
+    };
+    userScores.push(newScore);
+    window.localStorage.setItem("userScores", JSON.stringify(userScores));
+
+    setUserInitals.setAttribute("class", "hidden");
+    viewScoresEl.removeAttribute("class");
+    window.localStorage.getItem("userScores");
+    JSON.parse(window.localStorage.getItem("userScores"));
+
+}
 startButtonEl.onclick = startQuiz;

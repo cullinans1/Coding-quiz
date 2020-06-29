@@ -76,6 +76,7 @@ header {
 .btn {
     background-color: rgba(13, 13, 94, 1);
 }
-.scorescreen{
+.score-screen{
     font-size: 15px;
+    display: block;
 }
