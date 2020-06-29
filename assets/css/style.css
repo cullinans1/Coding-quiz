@@ -4,7 +4,7 @@
     padding: 0;
 }
 :root {
-    --color1: rgb(114, 0, 0);
+    --color1: rgba(13, 13, 94);
     --color2: rgb(211, 211, 211);
     --white: rgb(255, 255, 255);
 }
@@ -13,8 +13,8 @@ header {
     margin:15px;
     font-size: 10px;
 }
-/* Styling for timer left countdown */
-.countdown {
+/* Styling for timer left countdown and score*/
+.countdown, .score {
     text-align: right;
     font-size: 1.5vw;
 }
@@ -63,8 +63,16 @@ header {
     display: none;
 }
 .questions {
-    font-size: 25px;
+    font-size: 20px;
 }
 .choices {
     font-size: 15px;
+    display: block;
+    margin: 15px;
+}
+#heading {
+    font-size: 25px;
+}
+.btn {
+    background-color: rgba(13, 13, 94, 1);
 }
