@@ -13,34 +13,37 @@ var submitBtn = document.getElementById("submit");
 var formControlEl = document.getElementById("initalsEntry");
 var viewScoresEl = document.getElementById("view-scores");
 var clearBtn = document.getElementById("clearBtn");
+var highScoresBtn = document.getElementById("high-scores");
+var restartBtn = document.getElementById("restart");
 var score = 0;
+
 //array for questions
 var questionBank = [
-    // {
-    //     question: "What is the correct syntax for creating a paragraph in HTML?",
-    //     options: ["<body></body>", "<p></p>", "(paragraph)", "<section></section>"],
-    //     answer: "<p></p>"
-    // },
-    // {
-    //     question: "When using an alert, what is the proper way to type it?",
-    //     options: ["console.log(alert:...)", "window.alert('...')", "alertThis'...'", "You mean alarm?"],
-    //     answer: "window.alert('...')"
-    // },
-    // {
-    //     question: "Javascript Functions are open and closed with what tags?",
-    //     options: ["{ }", "[ ]", '" "', "( )"],
-    //     answer: "{ }"
-    // },
-    // {
-    //     question: "In CSS what is the best way to style this specific tag in a div: <p class = 'paragraph' id= 'content'>",
-    //     options: [".p {...}", ".div p{...}", ".paragraph {...}", "#content{...}"],
-    //     answer: "#content{...}"
-    // },
-    // {
-    //     question: "What is an array in javascript?",
-    //     options: ["An object that allows storage of multiple values in a single variable", "An ordered series or arrangement", "An impressive display or range of a particular type of thing", "A unique function that arranges things by whatever order specified"],
-    //     answer: "An object that allows storage of multiple values in a single variable"
-    // },
+    {
+        question: "What is the correct syntax for creating a paragraph in HTML?",
+        options: ["<body></body>", "<p></p>", "(paragraph)", "<section></section>"],
+        answer: "<p></p>"
+    },
+    {
+        question: "When using an alert, what is the proper way to type it?",
+        options: ["console.log(alert:...)", "window.alert('...')", "alertThis'...'", "You mean alarm?"],
+        answer: "window.alert('...')"
+    },
+    {
+        question: "Javascript Functions are open and closed with what tags?",
+        options: ["{ }", "[ ]", '" "', "( )"],
+        answer: "{ }"
+    },
+    {
+        question: "In CSS what is the best way to style this specific tag in a div: <p class = 'paragraph' id= 'content'>",
+        options: [".p {...}", ".div p{...}", ".paragraph {...}", "#content{...}"],
+        answer: "#content{...}"
+    },
+    {
+        question: "What is an array in javascript?",
+        options: ["An object that allows storage of multiple values in a single variable", "An ordered series or arrangement", "An impressive display or range of a particular type of thing", "A unique function that arranges things by whatever order specified"],
+        answer: "An object that allows storage of multiple values in a single variable"
+    },
     {
         question: "What is important when writing new code?",
         options: ["Save often", "Use google if you aren't sure", "Test the code often", "All of these"],
@@ -71,6 +74,8 @@ function startQuiz() {
     quizTimer();
     //hide current screen and start button
     startScreenEl.setAttribute("class", "hidden");
+    //hide view high score button
+    highScoresBtn.setAttribute("class", "hidden");
     //get questions
     getQuestions();
 }
@@ -119,6 +124,7 @@ function endGame() {
     setUserInitals.setAttribute("class", "score-screen")
     finalScoreEl.textContent = "Final Score: " + score;
     submitBtn.onclick= saveScores;
+    scoreEl.setAttribute("class", "hidden");
 };
 function saveScores() {
     var userInitals = formControlEl.value.trim();
@@ -134,16 +140,24 @@ function saveScores() {
     showScores();
 };
 function showScores() {
+    //using to also show high scores from the main menu
+    startScreenEl.setAttribute("class", "hidden");
     viewScoresEl.removeAttribute("class");
     var userScores = JSON.parse(window.localStorage.getItem("userScores")) || [];
     userScores.forEach(function(scores) {
         var liEl = document.createElement("li");
-        liEl.textContent = scores.initals + ":" + scores.score;
+        liEl.textContent = scores.initals + " : " + scores.score;
         viewScoresEl.appendChild(liEl);
     });
 };
 function clearHighScores() {
     window.localStorage.removeItem("userScores");
-};
+    history.go(0);
+}
+function restartQuiz() {
+    history.go(0);
+}
+restartBtn.onclick = restartQuiz;
+highScoresBtn.onclick = showScores;
 startButtonEl.onclick = startQuiz;
 clearBtn.onclick = clearHighScores;

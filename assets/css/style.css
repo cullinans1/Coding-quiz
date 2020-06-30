@@ -37,28 +37,6 @@ header {
 #discription {
     font-size: 18px;
 }
-/*styling for button*/
-.startbtn {
-  outline: none;
-  border: none;
-  display: inline-block;
-  padding: 10px 15px;
-  background: var(--color1);
-  font-size: 1.2rem;
-  border-radius: 12px;
-  position: relative;
-  box-shadow: 0 3px var(--color2);
-  color: var(--white);
-}
-
-.startbtn:hover {
-  box-shadow: 0 2px var(--color2);
-  top: 2px;
-}
-.startbtn:active {
-  box-shadow: 0 0px var(--color2);
-  top: 0;
-}
 .hidden {
     display: none;
 }
@@ -79,4 +57,5 @@ header {
 .score-screen{
     font-size: 15px;
     display: block;
+    text-align: center;
 }
