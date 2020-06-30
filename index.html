@@ -10,7 +10,7 @@
 <body>
 <!--Header for the Page-->
     <header>
-        <h1 class="high-scores" id="high-scores">View High Scores</h1>
+        <button type="button" class="btn btn-dark">View High Scores</button>
         <p class="countdown" id="countdown"></p>
         <p class="score" id="score"></p>
     </header>
@@ -28,7 +28,9 @@
                 <button class="btn btn-secondary" type="button" id="submit">Submit</button>
             </form>
         </div>
-        <div class="hidden" id="view-scores"></div>
+        <div class="hidden" id="view-scores">
+            <button type="button" class="btn btn-danger" id="clearBtn">Clear scores</button>
+        </div>
         <section class="start-screen" id="start-screen">
             <h2 class="question">Coding Quiz Challenge</h2>
             <p id="discription">Answer the question correctly to earn points, answer incorrectly to lose points!</p>
